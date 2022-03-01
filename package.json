@@ -1,0 +1,32 @@
+{
+  "name": "clarify-error",
+  "version": "0.0.1",
+  "description": "Add some additional context to a JavaScript error",
+  "author": "Andre Staltz <contact@staltz.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staltz/clarify-error.git"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/*"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.39",
+    "c8": "^7.11.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^5.2.2",
+    "typescript": "~4.6.2"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "test": "npm run compile && npm run tape",
+    "tape": "tape test/*.js | tap-spec",
+    "coverage": "c8 npm run test"
+  }
+}
