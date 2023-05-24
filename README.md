@@ -12,19 +12,19 @@ this error may be passed back somewhere else, too often, context is lost.
 
 ```js
 const fs = require('fs')
-const explain = require('explain-error')
+const clarify = require('clarify-error')
 
 // stat a file that does not exist. this will error, so add an explanation.
-function explainedError(cb) {
+function clarifyError(cb) {
   fs.stat('neoatuhrcoahkrcophkr', (err) => {
-    if (err) cb(explain(err, 'asked for a file that certainly did not exist'))
+    if (err) cb(clarify(err, 'asked for a file that certainly did not exist'))
     else cb()
   })
 }
 
 // this works even with multiple layers of explanations.
-explainedError(function (err) {
-  throw explain(err, 'called an function that was expected to fail')
+clarifyError(function (err) {
+  throw clarify(err, 'called an function that was expected to fail')
 })
 ```
 
